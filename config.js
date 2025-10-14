@@ -17,6 +17,8 @@ global.cfg = {
    db: "beta-db", /* [ Buat tarok database ] */
    tz: "Asia/Makassar", /* [ Atur sesuai sama Daerah lu gua si wita] */
    zone: "WITA",
+   textReply: "Follow Donk", /* [ Yang paham² aja ] */
+   url: "https://www.instagram.com/adzcreator",
    bot: {
       name: 'FanzWeA bot', /* [ Nama bot ] */
       owner: ['962796121703'], /* [ Klo mau tambah tinggal [ ...03', '62x' ] ] */
@@ -26,12 +28,12 @@ global.cfg = {
    ads: {
       title: 'Fanz a simple WeA bot', /* [ Aja sendiri ] */
       body: 'Fanzbot created with ❤️ by Adzy', /* [ Aja sendiri ] */
-      sourceUrl: 'https://cici.com/', /* [ Aja Sendiri ] */
+      sourceUrl: 'https://kua.lat/', /* [ Aja Sendiri ] */
       imageUrl: 'https://github.com/Adzy-xyz.png' /* [ Aja sendiri ] */
    },
    forwd: {
       idch: "120363402531682848@newsletter", /* [ Id ch bebas ] */
-      namech: "unexpected" /* [ Nama ch mu ] */
+      namech: "TypeError: dzy is not function" /* [ Nama ch mu ] */
    },
    mess: {
       wait: '[#] Harap tunggu sebentar...', /* [ Pesan tunggu ] */
@@ -44,7 +46,7 @@ global.cfg = {
       free: '[#] Maaf yah fitur ini udah di buat khusus buat user Free, lagian lu kan dah Premium 🗿' /* [ Ada Ada saja😅 ] */
    },
    s: {
-      pack: `Make by:`, /* [ setiker pack ] */
+      pack: `Made by:`, /* [ setiker pack ] */
       auth: '\n\n\n\nFanzbot' /* [ Author nya ] */
    },
    apiKey: {
