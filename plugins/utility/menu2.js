@@ -1,7 +1,7 @@
 export default {
-  name: "menu",
+  name: "menu2",
   category: "utility",
-  command: ["menu"],
+  command: ["menu2"],
   run: async (conn, m, {
     Func
   }) => {
@@ -46,22 +46,6 @@ export default {
       }
 
       mani += `📌 Ketik *.menu all* untuk lihat semua fitur ✨`;
-     conn.sendMessage(m.chat, {
-      image: {
-        url: cfg.ads.imageUrl
-      },
-      caption: mani,
-      footer: cfg.bot.footer,
-      buttons: [{ 
-        buttonId: ".menu all",
-        buttonText: {
-          displayText: "[@] All Menu"
-        }
-      }],
-      contextInfo: {
-        mentionedJid: [...conn.parseMention(mani)]
-      }
-    }, { quoted: m });
     }
 
     // Menu All
@@ -76,7 +60,6 @@ export default {
         }
         mani += `╰─⭓\n\n`;
       }
-      m.reply(mani)
     }
 
     // Menu per kategori
@@ -87,28 +70,23 @@ export default {
       for (let hitem of grouped[jirlah]) {
         mani += `✦ ${m.prefix}${hitem.name}\n`;
       }
-      conn.sendMessage(m.chat, {
-      image: {
-        url: cfg.ads.imageUrl
-      },
-      caption: mani,
-      footer: cfg.bot.footer,
-      buttons: [{ 
-        buttonId: ".menu all",
-        buttonText: {
-          displayText: "[@] All Menu"
-        }
-      }],
-      contextInfo: {
-        mentionedJid: [...conn.parseMention(mani)]
-      }
-    }, { quoted: m });
     }
 
     // Kategori gak ketemu
     else {
       mani += `⚠️ Kategori *${jirlah}* gak ditemukan.\nKetik *.menu* untuk lihat list kategori.`;
-      m.reply(mani)
     }
+
+    conn.sendMessage(m.chat, {
+      image: {
+        url: cfg.ads.imageUrl
+      },
+      caption: mani,
+      footer: cfg.bot.footer,
+      interactiveButtons: [],
+      contextInfo: {
+        mentionedJid: [...conn.parseMention(mani)]
+      }
+    }, { quoted: m });
   },
 };
