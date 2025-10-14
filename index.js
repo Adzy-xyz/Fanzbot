@@ -115,26 +115,41 @@ async function startWA() {
 
   conn.ev.on('creds.update', saveCreds)
 
-  conn.ev.on('group-participants.update', async ({ id }) => {
-    if (!id || id === 'status@broadcast') return
-    try {
-      conn.chats[id] = await conn.groupMetadata(id)
-    } catch (e) {
-      log.error(`Gagal ambil data group ${id}: ${e}`)
-    }
-  })
+  conn.ev.on("groups.update", (updates) => {
+        for (const update of updates) {
+            const id = update.id
+            if (conn.chats[id]) {
+                conn.chats[id] = {
+                    ...(conn.chats[id] || {}),
+                    ...(update || {})
+                }
+            }
+        }
+    })
 
-  conn.ev.on('groups.update', async (updates) => {
-    for (const update of updates) {
-      const id = update.id
-      if (!id || id === 'status@broadcast' || !id.endsWith('@g.us')) continue
-      try {
-        conn.chats[id] = await conn.groupMetadata(id)
-      } catch (err) {
-        log.error(`Gagal ambil data group ${id}: ${err}`)
-      }
-    }
-  })
+    conn.ev.on('group-participants.update', ({ id, participants, action }) => {
+        const metadata = conn.chats[id]
+        if (metadata) {
+            switch (action) {
+                case 'add':
+                case "revoked_membership_requests":
+                    metadata.participants.push(...participants.map(id => ({ id: jidNormalizedUser(id), admin: null })))
+                    break
+                case 'demote':
+                case 'promote':
+                    for (const participant of metadata.participants) {
+                        let id = jidNormalizedUser(participant.id)
+                        if (participants.includes(id)) {
+                            participant.admin = (action === "promote" ? "admin" : null)
+                        }
+                    }
+                    break
+                case 'remove':
+                    metadata.participants = metadata.participants.filter(p => !participants.includes(jidNormalizedUser(p.id)))
+                    break
+            }
+        }
+    })
 
   conn.ev.on('messages.upsert', async ({ messages }) => {
     if (!messages[0]) return
