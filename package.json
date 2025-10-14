@@ -4,7 +4,7 @@
   "description": "Fanz is simple WeA Bot",
   "license": "ISC",
   "author": "Adzy-f",
-  "base": "AgusXzz/ESEMPE-MD",
+  "base": "github:AgusXzz/ESEMPE-MD",
   "homepage": "https://github.com/Adzy-f/Fanz#readme",
   "repository": {
     "type": "git",
