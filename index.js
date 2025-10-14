@@ -5,7 +5,8 @@ import {
   Browsers,
   DisconnectReason,
   useMultiFileAuthState,
-  makeCacheableSignalKeyStore
+  makeCacheableSignalKeyStore,
+  fetchLatestBaileysVersion
 } from 'baileys'
 import { Boom } from '@hapi/boom'
 import fs from 'fs'
@@ -37,6 +38,7 @@ global.scrape = new Scrape(process.cwd() + "/scrape/src");
 async function startWA() {
   const { state, saveCreds } = await useMultiFileAuthState('sessions')
 
+const { version } = await fetchLatestBaileysVersion()
   const conn = makeWASocket({
     auth: {
       creds: state.creds,
