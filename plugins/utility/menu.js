@@ -83,7 +83,10 @@ export default {
       },
       caption: mani,
       footer: cfg.bot.footer,
-      interactiveButtons: []
+      interactiveButtons: [],
+      contextInfo: {
+        mentionedJid: [...conn.parseMention(mani)]
+      }
       }, { quoted: m });
   },
 };
