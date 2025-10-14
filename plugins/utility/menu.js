@@ -32,7 +32,7 @@ export default {
 │ Versi : ${bot.version}
 │ Tanggal : ${time},
 │ Creator : made with ❤️ by Adzy,
-╰─────────────⭓`;
+╰─⭓`;
 
     // Menu Utama
     if (!jirlah) {
