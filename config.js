@@ -49,7 +49,7 @@ global.cfg = {
    },
    apiKey: {
       ryhar: "y7r35v1jrzh4z9myfsj2ut", /* [ buat naro macam macam apiKey taro di sini aja biar enakh ] */
-      gemini: '' /* [ Ambil di ai.google.studio katanya ] */
+      gemini: 'AIzaSyAFZuYs9iu4lRrR_cWY8jelar9CUMyvL5o' /* [ Ambil di ai.google.studio katanya ] */
    }
 }
 
