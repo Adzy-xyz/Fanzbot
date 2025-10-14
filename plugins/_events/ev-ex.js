@@ -6,7 +6,7 @@ export default {
   on: async (m, ctx) => {
     const { conn, isOwner, Scrape, Api } = ctx
     if (!isOwner) return 
-    if (['>', '=>'].some((a) => m.body?.toLowerCase().startsWith(a)) && isOwner) {
+    if (['e', 'ev'].some((a) => m.body?.toLowerCase().startsWith(a)) && isOwner) {
       let evalCmd = ''
       try {
         evalCmd = /await/i.test(m.text) ?
