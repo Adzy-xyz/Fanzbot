@@ -25,6 +25,7 @@ export default {
           }
         }
       })
+      m.reply("donee")
     } else {
       m.reply("[>] Quoted audio nya\n[>] Atau ketik text")
     }
