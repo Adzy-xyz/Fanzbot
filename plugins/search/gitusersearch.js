@@ -11,7 +11,7 @@ const rijalSemangka = {
       let babi = {
         username: m.text || "Adzy-xyz"
       }
-      let api = await Api.request("ryhar", endpoint, babi);
+      let api = await Api.request("lanz", endpoint, babi);
       let r = api.data.data.result;
       // buat info selanjutnya 
       let type = r.__typename;
