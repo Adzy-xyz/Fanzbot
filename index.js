@@ -45,6 +45,7 @@ async function startWA() {
         pino().child({ level: 'fatal', stream: 'store' })
       )
     },
+    version,
     logger: pino({ level: 'silent' }),
     browser: Browsers.windows('Chrome'),
     markOnlineOnConnect: false,
