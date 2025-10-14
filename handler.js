@@ -21,7 +21,7 @@ export default async function Command(conn, m) {
   if (m.isBot) return
   if (!isOwner && db.list().settings.self) return;
   if (m.isGroup && db.list().group[m.chat]?.mute && !isOwner) return;
-  if (db.list().user[m.sender].banned.status) return m.reply("Maaf anda di bans")
+  if (db.list().user[m.sender].banned.status) return m.reply("`[#]` Upsss kamu di ban sama Owner🤪\n> Minta tinjauan sama owner sana biar di unban😏")
 
 
   // const isAdmin = m.isGroup && metadata.participants.find(u => conn.getJid(u.id) === m.sender).admin == 'admin' || false;
