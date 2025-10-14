@@ -46,7 +46,7 @@ async function startWA() {
       )
     },
     logger: pino({ level: 'silent' }),
-    browser: Browsers.ubuntu('Chrome'),
+    browser: Browsers.windows('Chrome'),
     markOnlineOnConnect: false,
     generateHighQualityLinkPreview: true
   })
