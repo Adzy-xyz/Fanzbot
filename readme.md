@@ -150,6 +150,6 @@ Untuk perubahan fitur besar, **buka issue terlebih dahulu** agar dapat didiskusi
 [![Axell](https://github.com/AxellNetwork.png?size=100)](https://github.com/AxellNetwork)  
 [![Senn](https://github.com/synshin9.png?size=100)](https://github.com/synshin9)
 
-**Contributor**
+**Based**
 
 [![Om Agus](https://github.com/AgusXzz.png?size=100)](https://github.com/AgusXzz)  
