@@ -13,20 +13,20 @@ import pkg from "./package.json" with { type: "json" }
 global.pkg = pkg
 global.cfg = {
    pairing: 962796121703, /* [ Nomor bot ] */
-   code: "METADATA", /* [ Kode pairing mu ] */
+   code: "FANZBETA", /* [ Kode pairing mu ] */
    db: "beta-db", /* [ Buat tarok database ] */
    tz: "Asia/Makassar", /* [ Atur sesuai sama Daerah lu gua si wita] */
    zone: "WITA",
    bot: {
-      name: 'F-Beta botz', /* [ Nama bot ] */
+      name: 'FanzWeA bot', /* [ Nama bot ] */
       owner: ['962796121703'], /* [ Klo mau tambah tinggal [ ...03', '62x' ] ] */
       version: global.pkg.version,
       footer: "Powered by Javascript" /* [ Well ya ] */
    },
    ads: {
-      title: 'F-Beta a WhatsApp bot', /* [ Aja sendiri ] */
-      body: 'F-Beta-botz created with ❤️ by Adzy', /* [ Aja sendiri ] */
-      sourceUrl: 'https://lahelu.com/', /* [ Aja Sendiri ] */
+      title: 'Fanz a simple WeA bot', /* [ Aja sendiri ] */
+      body: 'Fanzbot created with ❤️ by Adzy', /* [ Aja sendiri ] */
+      sourceUrl: 'https://cici.com/', /* [ Aja Sendiri ] */
       imageUrl: 'https://github.com/Adzy-xyz.png' /* [ Aja sendiri ] */
    },
    forwd: {
@@ -44,8 +44,8 @@ global.cfg = {
       free: '> // Maaf yah fitur ini udah di buat khusus buat user Free, lagian lu kan dah Premium 🗿' /* [ Ada Ada saja😅 ] */
    },
    s: {
-      pack: `Stiker by:`, /* [ setiker pack ] */
-      auth: 'fanzBeta' /* [ Author nya ] */
+      pack: `Make by:`, /* [ setiker pack ] */
+      auth: '\n\n\n\nFanzbot' /* [ Author nya ] */
    },
    apiKey: {
       ryhar: "y7r35v1jrzh4z9myfsj2ut", /* [ buat naro macam macam apiKey taro di sini aja biar enakh ] */
