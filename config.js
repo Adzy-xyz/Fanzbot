@@ -36,14 +36,14 @@ global.cfg = {
       namech: "TypeError: dzy is not function" /* [ Nama ch mu ] */
    },
    mess: {
-      wait: '[#] Harap tunggu sebentar...', /* [ Pesan tunggu ] */
-      owner: '[#] Fitur ini hanya bisa digunakan oleh Owner.', /* [ Pesan khusus ] */
-      group: '[#] Fitur ini hanya bisa digunakan dalam Group.', /* [ Pesan hanya di grup ] */
-      admin: '[#] Fitur ini hanya bisa digunakan oleh Admin Group.', /* [ Pesan khusus admin ] */
-      botAdmin: '[#] Bot harus menjadi Admin terlebih dahulu.', /* [ Pesan bot harus jadi admin ] */
-      private: '[#] Fitur ini hanya bisa digunakan di chat pribadi.', /* [ Pesan bot hanya dipakai di pc ] */
-      premium: '[#] Maaf, Khusus Premium saja', /* [ Pesan khusus premium ] */
-      free: '[#] Maaf yah fitur ini udah di buat khusus buat user Free, lagian lu kan dah Premium 🗿' /* [ Ada Ada saja😅 ] */
+      wait: '`[#]` Harap tunggu sebentar...', /* [ Pesan tunggu ] */
+      owner: '`[#]` Fitur ini hanya bisa digunakan oleh Owner.', /* [ Pesan khusus ] */
+      group: '`[#]` Fitur ini hanya bisa digunakan dalam Group.', /* [ Pesan hanya di grup ] */
+      admin: '`[#]` Fitur ini hanya bisa digunakan oleh Admin Group.', /* [ Pesan khusus admin ] */
+      botAdmin: '`[#]` Bot harus menjadi Admin terlebih dahulu.', /* [ Pesan bot harus jadi admin ] */
+      private: '`[#]` Fitur ini hanya bisa digunakan di chat pribadi.', /* [ Pesan bot hanya dipakai di pc ] */
+      premium: '`[#]` Maaf, Khusus Premium saja', /* [ Pesan khusus premium ] */
+      free: '`[#]` Maaf yah fitur ini udah di buat khusus buat user Free, lagian lu kan dah Premium 🗿' /* [ Ada Ada saja😅 ] */
    },
    s: {
       pack: `Made by:`, /* [ setiker pack ] */

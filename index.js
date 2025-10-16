@@ -38,7 +38,7 @@ global.scrape = new Scrape(process.cwd() + "/scrape/src");
 async function startWA() {
   const { state, saveCreds } = await useMultiFileAuthState('sessions')
 
-const { version } = await fetchLatestBaileysVersion()
+  const { version } = await fetchLatestBaileysVersion()
   const conn = makeWASocket({
     auth: {
       creds: state.creds,
@@ -118,7 +118,7 @@ const { version } = await fetchLatestBaileysVersion()
 
   conn.ev.on('creds.update', saveCreds)
 
-  conn.ev.on("groups.update", (updates) => {
+conn.ev.on("groups.update", (updates) => {
         for (const update of updates) {
             const id = update.id
             if (conn.chats[id]) {

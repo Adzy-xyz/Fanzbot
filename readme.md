@@ -145,11 +145,11 @@ Untuk perubahan fitur besar, **buka issue terlebih dahulu** agar dapat didiskusi
 
 **Thanks To**
 
-[![Dika Ardnt](https://github.com/DikaArdnt.png?size=100)](https://github.com/DikaArdnt)
-[![WhiskeySockets](https://github.com/WhiskeySockets.png?size=100)](https://github.com/WhiskeySockets/Baileys)
+[![Dika Ardnt](https://github.com/DikaArdnt.png?size=100)](https://github.com/DikaArdnt) 
+[![WhiskeySockets](https://github.com/WhiskeySockets.png?size=100)](https://github.com/WhiskeySockets/Baileys) 
 [![Axell](https://github.com/AxellNetwork.png?size=100)](https://github.com/AxellNetwork) 
 [![Senn](https://github.com/synshin9.png?size=100)](https://github.com/synshin9)
 
 **Based**
 
-[![Om Agus](https://github.com/AgusXzz.png?size=100)](https://github.com/AgusXzz)  
+[![Om Agus](https://github.com/AgusXzz.png?size=100)](https://github.com/AgusXzz) 

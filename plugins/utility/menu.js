@@ -42,10 +42,10 @@ export default {
       for (let category of Object.keys(grouped)) {
         mani += `╭─❏ *${category.toUpperCase()}*\n` +
           `│ Ketik *.menu ${category.toLowerCase()}*\n` +
-          '╰─⭓\n\n';
+          '╰─⭓\n';
       }
 
-      mani += `📌 Ketik *.menu all* untuk lihat semua fitur ✨`;
+      mani += `📌 klik button di bawah untuk lihat semua fitur ✨`
      conn.sendMessage(m.chat, {
       image: {
         url: cfg.ads.imageUrl
@@ -56,6 +56,11 @@ export default {
         buttonId: ".menu all",
         buttonText: {
           displayText: "[@] All Menu"
+        }
+      }, {
+        buttonId: ".menu2",
+        buttonText: {
+          displayText: "[@] Menu no button"
         }
       }],
       contextInfo: {
@@ -97,6 +102,11 @@ export default {
         buttonId: ".menu all",
         buttonText: {
           displayText: "[@] All Menu"
+        }
+      }, {
+        buttonId: ".menu2",
+        buttonText: {
+          displayText: "[@] Menu no button"
         }
       }],
       contextInfo: {

@@ -82,10 +82,15 @@ export default {
         url: cfg.ads.imageUrl
       },
       caption: mani,
-      footer: cfg.bot.footer,
-      interactiveButtons: [],
       contextInfo: {
-        mentionedJid: [...conn.parseMention(mani)]
+        mentionedJid: [...conn.parseMention(mani)],
+        externalAdReply: {
+          title: cfg.ads.title,
+          body: cfg.bot.version,
+          thumbnailUrl: cfg.ads.imageUrl,
+          showAdAttribution: true,
+          renderLargerThumbnail: true
+        }
       }
     }, { quoted: m });
   },

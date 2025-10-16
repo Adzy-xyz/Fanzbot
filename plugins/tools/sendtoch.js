@@ -7,7 +7,33 @@ export default {
     let inputan = m.isQuoted ? quoted.body : m.text
     let idch = cfg.forwd.idch;
     
-    if (/audio/.test(quoted.msg?.mimetype)) {
+    if (/image/.test(quoted.msg?.mimetype)) {
+    let dl = await quoted.download();
+    await conn.sendMessage(idch, {
+      image: dl,
+      caption: quoted.body || "",
+      contextInfo: {
+          externalAdReply: {
+            title: cfg.ads.title,
+            thumbnailUrl: cfg.ads.imageUrl
+          }
+        }
+    })
+    m.reply("donee")
+    } else if (/video/.test(quoted.msg?.mimetype)) {
+    let dl = await quoted.download();
+    await conn.sendMessage(idch, {
+      video: dl,
+      caption: quoted.body || "",
+      contextInfo: {
+          externalAdReply: {
+            title: cfg.ads.title,
+            thumbnailUrl: cfg.ads.imageUrl
+          }
+        }
+    })
+    m.reply("donee")
+    } else if (/audio/.test(quoted.msg?.mimetype)) {
     let dl = await quoted.download();
     await conn.sendMessage(idch, {
       audio: dl,
@@ -27,7 +53,7 @@ export default {
       })
       m.reply("donee")
     } else {
-      m.reply("[>] Quoted audio nya\n[>] Atau ketik text")
+      m.reply("[>] Quoted audio nya\n[>] Atau ketik text\n[>] Reply Video / Foto juga bisa")
     }
   }
 }
