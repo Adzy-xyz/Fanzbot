@@ -20,7 +20,7 @@ global.cfg = {
             "962796121703"
         ] /* [ Klo mau tambah tinggal [ ...03', '62x' ] ] */,
         version: global.pkg.version,
-        footer: "Powered by Javascript" /* [ Well ya ] */,
+        footer: "Powered by Javascript", /* [ Well ya ] */,
         prefix: [":"]
     },
     ads: {
