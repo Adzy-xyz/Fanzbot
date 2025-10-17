@@ -8,31 +8,37 @@ export default {
     run: async (conn, m, { Api, quoted }) => {
         let input = m.isQuoted ? quoted?.body : m.text;
         try {
-            if (!input)
+            if (!input) {
                 return m.reply(
-                    "[!] Harap ketikan query: misal\n " + m.cmd + " Halo feloai"
+                    "[!] Harap ketikan query: misal\n" + m.cmd + " Halo feloai"
                 );
-            let endpoint = "/api/ai/feloai";
-            let query = {
-                query: m.text
-            };
-            let apis = await Api.request("zenz", endpoint, query);
-            if (apis.success !== true) {
+            }
+
+            const endpoint = "/api/ai/feloai";
+            const query = { query: input };
+            const apis = await Api.request("zenz", endpoint, query);
+
+            if (!apis?.success) {
                 return m.reply("Terjadi kesalahan! cek api apakah masih bisa?");
             }
+
             const {
                 data: { answer, source }
             } = apis;
-            if (!source || source.length === 0) return;
 
             let send = `${answer}`;
-            source.forEach((p, i) => {
-                send += "\n\nSource: " + `${i + 1}\n`;
-                send += `> Title: ${p.title}\n`;
-                send += `> Link: ${p.link}\n`;
-                send += `> Snippet: ${p.snippet}\n`;
-                send += `- Engine => ${engine_name} -`;
-            });
+
+            if (!source || source.length === 0) {
+                send += "\n\n> Tidak ada Source";
+            } else {
+                source.forEach((p, i) => {
+                    send += `\n\nSource: ${i + 1}\n`;
+                    send += `> Title: ${p.title}\n`;
+                    if (p.url) send += `> URL: ${p.url}\n`;
+                });
+            }
+
+            return m.reply(send);
             m.reply(send);
         } catch (err) {
             m.reply("Ups error\n" + err.message);
