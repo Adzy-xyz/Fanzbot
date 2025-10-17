@@ -3,9 +3,9 @@ FanzCode();
 **/
 
 export default {
-   name: "totalfitur",
+   name: "totalplugin",
    category: "utility",
-   command: ["totalfitur"],
+   command: ["totalplugin"],
    run: async (conn, m) => {
       let total = Object.values(plugins).length
       m.reply(`> Total fitur saat ini ${total} Plugins`)

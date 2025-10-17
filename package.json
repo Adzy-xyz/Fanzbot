@@ -1,60 +1,61 @@
 {
-  "name": "fanz",
-  "version": "2.2.4-fb.1",
-  "description": "Fanz is simple WeA Bot",
-  "license": "ISC",
-  "author": "Adzy-f",
-  "base": "github:AgusXzz/ESEMPE-MD",
-  "homepage": "https://github.com/Adzy-f/Fanz#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Adzy-f/Fanz.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Adzy-f/Fanz/issues"
-  },
-  "type": "module",
-  "main": "index.js",
-  "license": "Apache-2.0",
-  "scripts": {
-    "start": "node index.js",
-    "pm2": "npx pm2 monit",
-    "lint": "eslint .",
-    "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write ."
-  },
-  "imports": {
-    "#lib/*": "./lib/*",
-    "#scrape/*": "./scrape/src/*"
-  },
-  "keywords": [
-    "whatsapp-bot",
-    "whatsapp",
-    "multi-device",
-    "baileys",
-    "nodejs",
-    "termux"
-  ],
-  "dependencies": {
-    "axios": "^1.12.2",
-    "baileys": "github:Adzy-xyz/baileys",
-    "chalk": "^5.6.2",
-    "cheerio": "^1.1.2",
-    "chokidar": "^4.0.3",
-    "file-type": "^17.1.1",
-    "fluent-ffmpeg": "^2.1.3",
-    "moment-timezone": "^0.5.46",
-    "node-cron": "^3.0.3",
-    "node-webpmux": "^3.2.1",
-    "querystring": "^0.2.1",
-    "undici": "^7.16.0",
-    "pm2": "^6.0.13",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.37.0",
-    "eslint": "^9.37.0",
-    "globals": "^16.4.0",
-    "prettier": "^3.6.2"
-  }
+    "name": "fanz",
+    "version": "2.2.4-fb.1",
+    "description": "Fanz is simple WeA Bot",
+    "license": "ISC",
+    "author": "Adzy-f",
+    "base": "github:AgusXzz/ESEMPE-MD",
+    "homepage": "https://github.com/Adzy-f/Fanz#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Adzy-f/Fanz.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Adzy-f/Fanz/issues"
+    },
+    "type": "module",
+    "main": "index.js",
+    "license": "Apache-2.0",
+    "scripts": {
+        "start": "node index.js",
+        "pm2": "npx pm2 monit",
+        "lint": "eslint .",
+        "prettier": "prettier --check .",
+        "prettier:fix": "prettier --write ."
+    },
+    "imports": {
+        "#lib/*": "./lib/*",
+        "#scrape/*": "./scrape/src/*"
+    },
+    "keywords": [
+        "whatsapp-bot",
+        "whatsapp",
+        "multi-device",
+        "baileys",
+        "nodejs",
+        "termux"
+    ],
+    "dependencies": {
+        "axios": "^1.12.2",
+        "baileys": "github:Adzy-xyz/baileys",
+        "chalk": "^5.6.2",
+        "cheerio": "^1.1.2",
+        "chokidar": "^4.0.3",
+        "file-type": "^17.1.1",
+        "fluent-ffmpeg": "^2.1.3",
+        "moment-timezone": "^0.5.46",
+        "node-cron": "^3.0.3",
+        "node-webpmux": "^3.2.1",
+        "querystring": "^0.2.1",
+        "undici": "^7.16.0",
+        "pm2": "^6.0.13",
+        "path": "^0.12.7",
+        "liora-lib": "^1.0.24"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.37.0",
+        "eslint": "^9.37.0",
+        "globals": "^16.4.0",
+        "prettier": "^3.6.2"
+    }
 }
