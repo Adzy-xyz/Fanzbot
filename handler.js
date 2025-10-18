@@ -158,7 +158,7 @@ export default async function Command(conn, m) {
                         global.cooldowns[key] = now;
                     }
                     if (plugin.settings?.loading) m.reply(cfg.mess.wait);
-                    if (plugin.settings?.react) m.react(m.chat, "⏰");
+                    if (plugin.settings?.react) m.react(m.chat, Func.pickRandom(["","","","","","",""]));
 
                     plugin.run(conn, m, ctx).then(async a => {
                         if (plugin.settings?.limit && !isPrems && !isOwner) {

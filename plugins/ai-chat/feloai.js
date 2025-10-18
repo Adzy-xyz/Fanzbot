@@ -39,7 +39,6 @@ export default {
             }
 
             return m.reply(send);
-            m.reply(send);
         } catch (err) {
             m.reply("Ups error\n" + err.message);
         }

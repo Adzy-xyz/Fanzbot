@@ -1,6 +1,6 @@
 {
     "name": "fanz",
-    "version": "2.2.5-fb.3",
+    "version": "2.3.1",
     "description": "Fanz is simple WeA Bot",
     "license": "ISC",
     "author": "Adzy-f",
@@ -25,7 +25,8 @@
     },
     "imports": {
         "#lib/*": "./lib/*",
-        "#scrape/*": "./scrape/src/*"
+        "#scrape/*": "./scrape/src/*",
+        "#client/*": "./lib/client/*"
     },
     "keywords": [
         "whatsapp-bot",

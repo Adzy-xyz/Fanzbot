@@ -4,24 +4,30 @@ import log from "#lib/logger.js";
 import pkg from "./package.json" with { type: "json" };
 
 // saran aja ni klo mau edit nonaktifkan bungkus kata🗿 takut comment nya ngeganggu hehe
-/*============= Konfigurasi =============*/
 global.pkg = pkg;
+global.qtext = {
+    key: {
+        remoteJid: "status@broadcast",
+        participant: "0@s.whatsapp.net"
+    },
+    message: { extendedTextMessage: { text: "MyWeA bot - Multi Depis" } }
+};
+
+/*============= Konfigurasi =============*/
 global.cfg = {
     pairing: 962796121703 /* [ Nomor bot ] */,
     code: "FANZBETA" /* [ Kode pairing mu ] */,
     db: "beta-db" /* [ Buat tarok database ] */,
     tz: "Asia/Makassar" /* [ Atur sesuai sama Daerah lu gua si wita] */,
     zone: "WITA",
-    textReply: "Follow Donk" /* [ Yang paham² aja ] */,
-    url: "https://www.instagram.com/adzcreator",
     bot: {
         name: "FanzWeA bot" /* [ Nama bot ] */,
         owner: [
             "962796121703"
         ] /* [ Klo mau tambah tinggal [ ...03', '62x' ] ] */,
         version: global.pkg.version,
-        footer: "Powered by Javascript", /* [ Well ya ] */,
-        prefix: [":"]
+        footer: "Powered by Javascript" /* [ Well ya ] */,
+        prefix: [":", "!", "#", "-"]
     },
     ads: {
         title: "Fanz a simple WeA bot" /* [ Aja sendiri ] */,

@@ -1,21 +1,4 @@
-function createFakeContact(sender) {
-    const number = sender.split("@")[0];
-
-    return {
-        key: {
-            participants: "0@s.whatsapp.net",
-            remoteJid: "status@broadcast",
-            fromMe: false,
-            id: "ril"
-        },
-        message: {
-            contactMessage: {
-                vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${number}:${number}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-            }
-        },
-        participant: "0@s.whatsapp.net"
-    };
-}
+import fs from "fs";
 
 export default {
     name: "menu",
@@ -41,14 +24,16 @@ export default {
             minute: "2-digit",
             second: "2-digit"
         });
-        const quot = createFakeContact(m.sender);
         const bot = global.cfg.bot;
         let mani = "";
 
         const intro = `╭─❏ *${bot.name}*
-│ Versi : ${bot.version}
+│ Versi : ${bot.version},
 │ Tanggal : ${time},
 │ Creator : made with ❤️ by Adzy,
+│ Bases: AgusXyz,
+│ UserName: ${m.pushname},
+│ cmd: "${m.cmd}"
 ╰─⭓`;
 
         // Menu Utama
@@ -61,7 +46,7 @@ export default {
             for (let category of Object.keys(grouped)) {
                 mani +=
                     `╭─❏ *${category.toUpperCase()}*\n` +
-                    `│ Ketik *.menu ${category.toLowerCase()}*\n` +
+                    `│ Ketik *${m.prefix}menu ${category.toLowerCase()}*\n` +
                     "╰─⭓\n";
             }
 
@@ -69,30 +54,26 @@ export default {
             conn.sendMessage(
                 m.chat,
                 {
-                    image: {
-                        url: cfg.ads.imageUrl
-                    },
+                    document: fs.readFileSync("./media/bot.pdf"),
+                    mimetype: "application/pdf",
+                    pageCount: 2025,
+                    fileName: cfg.bot.name,
+                    fileLength: 1099511627776,
                     caption: mani,
-                    footer: cfg.bot.footer,
-                    buttons: [
-                        {
-                            buttonId: ".menu all",
-                            buttonText: {
-                                displayText: "[@] All Menu"
-                            }
-                        },
-                        {
-                            buttonId: ".menu2",
-                            buttonText: {
-                                displayText: "[@] Menu no button"
-                            }
-                        }
-                    ],
                     contextInfo: {
-                        mentionedJid: [...conn.parseMention(mani)]
+                        mentionedJid: [...conn.parseMention(mani)],
+                        externalAdReply: {
+                            title: cfg.ads.title,
+                            body: "Version: " + cfg.bot.version,
+                            showAdAttribution: true,
+                            thumbnailUrl: cfg.ads.imageUrl,
+                            mediaType: 1,
+                            previewType: "VIDEO",
+                            renderLargerThumbnail: true
+                        }
                     }
                 },
-                { quoted: quot }
+                { quoted: qtext }
             );
         }
 
@@ -110,7 +91,30 @@ export default {
                 }
                 mani += `╰─⭓\n\n`;
             }
-            m.reply(mani);
+            conn.sendMessage(
+                m.chat,
+                {
+                    document: fs.readFileSync("./media/bot.pdf"),
+                    mimetype: "application/pdf",
+                    pageCount: 2025,
+                    fileName: cfg.bot.name,
+                    fileLength: 1099511627776,
+                    caption: mani,
+                    contextInfo: {
+                        mentionedJid: [...conn.parseMention(mani)],
+                        externalAdReply: {
+                            title: cfg.ads.title,
+                            body: "Version: " + cfg.bot.version,
+                            showAdAttribution: true,
+                            thumbnailUrl: cfg.ads.imageUrl,
+                            mediaType: 1,
+                            previewType: "VIDEO",
+                            renderLargerThumbnail: true
+                        }
+                    }
+                },
+                { quoted: qtext }
+            );
         }
 
         // Menu per kategori
@@ -124,30 +128,26 @@ export default {
             conn.sendMessage(
                 m.chat,
                 {
-                    image: {
-                        url: cfg.ads.imageUrl
-                    },
+                    document: fs.readFileSync("./media/bot.pdf"),
+                    mimetype: "application/pdf",
+                    pageCount: 2025,
+                    fileName: cfg.bot.name,
+                    fileLength: 1099511627776,
                     caption: mani,
-                    footer: cfg.bot.footer,
-                    buttons: [
-                        {
-                            buttonId: ".menu all",
-                            buttonText: {
-                                displayText: "[@] All Menu"
-                            }
-                        },
-                        {
-                            buttonId: ".menu2",
-                            buttonText: {
-                                displayText: "[@] Menu no button"
-                            }
-                        }
-                    ],
                     contextInfo: {
-                        mentionedJid: [...conn.parseMention(mani)]
+                        mentionedJid: [...conn.parseMention(mani)],
+                        externalAdReply: {
+                            title: "Category : " + jirlah.toUpperCase(),
+                            body: "Version: " + cfg.bot.version,
+                            showAdAttribution: true,
+                            thumbnailUrl: cfg.ads.imageUrl,
+                            mediaType: 1,
+                            previewType: "VIDEO",
+                            renderLargerThumbnail: true
+                        }
                     }
                 },
-                { quoted: quot }
+                { quoted: qtext }
             );
         }
 

@@ -8,7 +8,7 @@ export default {
     run: async (conn, m, { Api, quoted }) => {
         let input = m.isQuoted ? quoted?.body : m.text;
         try {
-            if (input) {
+            if (!input) {
                 return m.reply("[!] Masukan pertanyaan");
             }
             let data = {
