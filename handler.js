@@ -76,8 +76,10 @@ export default async function Command(conn, m) {
               id: jidNormalizedUser(conn.user.id)
           }; // Default bot data untuk private message
 
-    let isAdmin = m.isGroup && senderData && senderData.admin === "admin";
-    let isBotAdmin = m.isGroup && botData && botData.admin === "admin";
+    let isAdmin =
+        (m.isGroup && senderData && senderData.admin === "admin") ||
+        "superadmin";
+    let isBotAdmin = m.isGroup && botData && botData.admin === "admin" || "superadmin";
     // Untuk private message, kamu bisa set admin dan botAdmin sesuai kebutuhan
     if (!m.isGroup) {
         isAdmin = false; // Misalnya bot gak punya role admin di private message

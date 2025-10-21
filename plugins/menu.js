@@ -2,7 +2,7 @@ import fs from "fs";
 
 export default {
     name: "menu",
-    category: "utility",
+    category: "main",
     command: ["menu"],
     run: async (conn, m, { Func }) => {
         let grouped = {};
@@ -32,12 +32,16 @@ export default {
 │ UserName: ${m.pushname},
 │ cmd: "${m.cmd}"
 ╰─⭓`;
-        const kontext = {
+        const thumbBuffer = Buffer.from(
+            await (await fetch(cfg.bot.thumb)).arrayBuffer()
+        );
+        const contextInfo = {
             mentionedJid: [...conn.parseMention(mani)],
             externalAdReply: {
                 title: cfg.ads.title,
                 body: cfg.ads.body,
-                thumbnailUrl: cfg.bot.thumb,
+                thumbnail: thumbBuffer,
+                sourceUrl: cfg.ads.source,
                 mediaType: 1,
                 previewType: "VIDEO",
                 renderLargerThumbnail: true
@@ -50,13 +54,13 @@ export default {
             mani += `👋 Halo *@${
                 m.sender.split("@")[0]
             }*, ini daftar menu yang tersedia:\n\n`;
-            mani += `╭─❏ *$ist Category*\n`;
+            mani += `╭─❏ *List Category*\n`;
             for (let category of Object.keys(grouped)) {
                 mani += `│ *${m.prefix}menu ${category.toLowerCase()}*\n`;
             }
             mani += "╰─⭓\n";
 
-            mani += `Ketik "${m.prefix}menu all" buat liat semua menu`;
+            mani += `Silah pencet button di bawah untuk lihat menu yang di pins`;
             conn.sendMessage(
                 m.chat,
                 {
@@ -80,11 +84,32 @@ export default {
                                                 id: `${m.prefix}menu all`
                                             },
                                             {
-                                                header: "info os",
-                                                title: "OS/Pinh",
+                                                header: "instagram dl",
+                                                title: "Instagram downloader",
                                                 description:
-                                                    "Melihat status bot/ping bot",
-                                                id: `${m.prefix}os`
+                                                    "Buat download video/foto instagram",
+                                                id: `${m.prefix}instagram`
+                                            },
+                                            {
+                                                header: "brat",
+                                                title: "Brat (Image)",
+                                                description:
+                                                    "Buat bikin text stiker",
+                                                id: `${m.prefix}brat`
+                                            },
+                                            {
+                                                header: "bratvid",
+                                                title: "Brat (video)",
+                                                description:
+                                                    "Buat bikin brat juga cuma bersi gifsticker",
+                                                id: `${m.prefix}bratvid`
+                                            },
+                                            {
+                                                header: "play",
+                                                title: "Play audio",
+                                                description:
+                                                    "Buat nyari lagu sesuai judul gtu",
+                                                id: `${m.prefix}play`
                                             }
                                         ]
                                     }
@@ -99,7 +124,7 @@ export default {
                             })
                         }
                     ],
-                    contextInfo: {mentionedJid: [...conn.parseMention(mani)],}
+                    contextInfo: { mentionedJid: [...conn.parseMention(mani)] }
                 },
                 { quoted: qtext }
             );
@@ -119,7 +144,7 @@ export default {
                 }
                 mani += `╰─⭓\n\n`;
             }
-            m.reply({ text: mani, contextInfo: kontext }, { quoted: qtext });
+            m.reply({ text: mani, contextInfo }, { quoted: qtext });
         }
 
         // Menu per kategori
@@ -130,7 +155,7 @@ export default {
             for (let hitem of grouped[jirlah]) {
                 mani += `✦ ${m.prefix}${hitem.name}\n`;
             }
-            m.reply({ text: mani, contextInfo: kontext }, { quoted: qtext });
+            m.reply({ text: mani, contextInfo }, { quoted: qtext });
         }
 
         // Kategori gak ketemu

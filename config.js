@@ -1,4 +1,4 @@
-import { watchFile, unwatchFile } from "fs";
+import { watchFile, unwatchFile, readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import log from "#lib/logger.js";
 import pkg from "./package.json" with { type: "json" };
@@ -8,15 +8,15 @@ global.pkg = pkg;
 global.qtext = {
     key: {
         remoteJid: "status@broadcast",
-        participant: "0@s.whatsapp.net"
+        participant: "18002428478@s.whatsapp.net"
     },
-    message: { extendedTextMessage: { text: "MyWeA bot - Multi Depis" } }
+    message: { extendedTextMessage: { text: "Simple WeA bot by Dzy" } }
 };
 
 /*============= Konfigurasi =============*/
 global.cfg = {
     pairing: 962796121703 /* [ Nomor bot ] */,
-    code: "FANZBETA" /* [ Kode pairing mu ] */,
+    code: "F4NZB3T4" /* [ Kode pairing mu ] */,
     db: "fanz-db" /* [ Buat tarok database ] */,
     tz: "Asia/Makassar" /* [ Atur sesuai sama Daerah lu gua si wita] */,
     zone: "WITA",
@@ -27,31 +27,31 @@ global.cfg = {
             "6283899616999"
         ] /* [ Klo mau tambah tinggal [ ...03', '62x' ] ] */,
         version: global.pkg.version,
-        footer: "Fanz is My WeA bot" /* [ Tungau ] */,
-        prefix: [":", "!", "#", "-"] /* [ Bisa di tambah ] */,
-        thumb: "https://github.com/Adzy-xyz.png"
+        footer: "Fanz is My WeA bot" /* [ Well ya ] */,
+        prefix: [":", "!", "#", "-"],
+        thumb: readFileSync("./media/bot.jpg") /* [ Atut aja sesuka lu ] */,
+        thumbvid: "" /* [ Buat versi video nya ] */
     },
     ads: {
-    	title: "FanzWeA Bot",
-    	body: "Powered by Adzy",
-    	source: "https://nefu.life/adzy"
+        title: "FanzWeA Bot",
+        body: "Powered by Adzy",
+        source: "https://nefu.life/adzy"
     },
     mess: {
-        wait: "`[#]` Harap tunggu sebentar..." /* [ Pesan tunggu ] */,
-        owner: "`[#]` Fitur ini hanya bisa digunakan oleh Owner." /* [ Pesan khusus ] */,
-        group: "`[#]` Fitur ini hanya bisa digunakan dalam Group." /* [ Pesan hanya di grup ] */,
-        admin: "`[#]` Fitur ini hanya bisa digunakan oleh Admin Group." /* [ Pesan khusus admin ] */,
+        wait: "`[-]` Tunggu sebentar yah, setika 3 tahun lagi..." /* [ Pesan tunggu ] */,
+        owner: "`[!]` Fifur khusus Owner tercintah" /* [ Pesan khusus ] */,
+        group: "`[!]` Cuma bisa di group" /* [ Pesan hanya di grup ] */,
+        admin: "`[!]` Khusus admin tersyang..." /* [ Pesan khusus admin ] */,
         botAdmin:
-            "`[#]` Bot harus menjadi Admin terlebih dahulu." /* [ Pesan bot harus jadi admin ] */,
+            "`[=]` Jadikan bot admin dulu..." /* [ Pesan bot harus jadi admin ] */,
         private:
-            "`[#]` Fitur ini hanya bisa digunakan di chat pribadi." /* [ Pesan bot hanya dipakai di pc ] */,
-        premium:
-            "`[#]` Maaf, Khusus Premium saja" /* [ Pesan khusus premium ] */,
-        free: "`[#]` Maaf yah fitur ini udah di buat khusus buat user Free, lagian lu kan dah Premium 🗿" /* [ Ada Ada saja😅 ] */
+            "`[×]`Hanya bisa di private chat" /* [ Pesan bot hanya dipakai di pc ] */,
+        premium: "`[×]` Dibuat untuk user prem" /* [ Pesan khusus premium ] */,
+        free: "`[!]` Anda user premium dilarang pakai" /* [ Ada Ada saja😅 ] */
     },
     s: {
-        pack: `Lolot` /* [ setiker pack ] */,
-        auth: "" /* [ Author nya ] */
+        pack: "" /* [ setiker pack ] */,
+        auth: "[!] Aku mau Makan Roti Belah Dua" /* [ Author nya ] */
     },
     apiKey: {
         ryhar: "p2pe75mrois182180i6y" /* [ buat naro macam macam apiKey taro di sini aja biar enakh ] */,

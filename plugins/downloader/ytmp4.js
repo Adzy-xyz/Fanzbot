@@ -10,11 +10,7 @@ export default {
         react: true
     },
     run: async (conn, m, { Api, Func }) => {
-        if (!m.text)
-            return m.reply(
-            	"[!] Imvalids Url! masukan url yutub nya"
-            
-            );
+        if (!m.text) return m.reply("[!] Imvalids Url! masukan url yutub nya");
         await m.reply("Sabar yaa");
         let api = await Api.request("ryhar", "/api/downloader/youtube-video", {
             url: m.text,

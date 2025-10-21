@@ -6,29 +6,26 @@ export default {
         owner: true
     },
     run: async (conn, m) => {
-        const number = m.text.replace(/\D/g, "");
+        const number = m.isQuoted
+            ? m.quoted.sender
+            : m.text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
         if (!number)
             return m.reply(
                 `❌ Masukkan nomor target!\nContoh: ${m.prefix}ban 6281234567890`
             );
 
-        const jid = number + "@s.whatsapp.net";
-
-        // auto register kalau belum ada
-        /*     if (!db.list().user[jid]) {
-      db.list().user[jid] = { limit: 50, premium: false, banned: false }
-    }
- */
         if (m.command === "ban") {
-            db.list().user[jid].banned.status = true;
+            db.list().user[number].banned.status = true;
             await db.save();
-            return m.reply(`🚫 User *@${number}* berhasil di-ban.`);
+            return m.reply(`🚫 User *${number.split("@")[0]}* berhasil di-ban.`);
         }
 
         if (m.command === "unban") {
             db.list().user[jid].banned.status = false;
             await db.save();
-            return m.reply(`✅ User *@${number}* sudah di-unban.`);
+            return m.reply(
+                `✅ User *@${number.split("@")[0]}* sudah di-unban.`
+            );
         }
     }
 };

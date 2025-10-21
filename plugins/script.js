@@ -1,6 +1,6 @@
 export default {
     name: "script",
-    category: "utility",
+    category: "main",
     command: ["sc", "script"],
     run: async (conn, m, { Func }) => {
         try {
@@ -8,7 +8,9 @@ export default {
                 "https://api.github.com/repos/Adzy-xyz/Fanzbot"
             );
 
-            m.reply(`*Informasi Script*\n
+            m.reply(
+                {
+                    text: `*Informasi Script*\n
 ✨ *Nama:* ${res.name}
 👤 *Pemilik:* ${res.owner.login ?? "-"}
 ⭐ *Star:* ${res.stargazers_count ?? 0}
@@ -16,8 +18,20 @@ export default {
 📅 *Dibuat sejak:* ${Func.ago(res.created_at)}
 ♻️ *Terakhir update:* ${Func.ago(res.updated_at)}
 🚀 *Terakhir publish:* ${Func.ago(res.pushed_at)}
-🔗 *Link:* ${res.html_url}
-`);
+`,
+                    interactiveButtons: [
+                        {
+                            name: "cta_url",
+                            buttonParamsJson: JSON.stringify({
+                                display_text: "[#] Links",
+                                url: res.html_url,
+                                merchant_url: res.html_url
+                            })
+                        }
+                    ]
+                },
+                { quoted: qtext }
+            );
         } catch (err) {
             console.error(err);
             return m.reply("Coba lagi nanti.");

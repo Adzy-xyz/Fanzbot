@@ -10,10 +10,7 @@ export default {
         react: true
     },
     run: async (conn, m, { Api }) => {
-        if (!m.text)
-            return m.reply(
-            	"[!] Imvalids Url! masukan url yutub nya"
-            );
+        if (!m.text) return m.reply("[!] Imvalids Url! masukan url yutub nya");
         await m.reply("Sabar yaa");
         const endpoint = "/api/downloader/youtube-audio";
         const kontol = {
