@@ -13,7 +13,7 @@ import fs from "fs";
 import pino from "pino";
 
 import { serialize, Client } from "#client/export.js";
-import log from "#lib/logger.js"
+import log from "#lib/logger.js";
 import PluginsLoad from "#lib/loadPlugins.js";
 import Database from "#lib/database.js";
 
@@ -171,46 +171,61 @@ async function startWA() {
 		}
 	});
 
-	conn.ev.on('messages.upsert', async ({ messages }) => {
-    if (!messages[0]) return
-    conn.messages ??= new Map()
-    const m = await serialize(conn, messages[0])
-    if (!conn.messages.has(m.chat)) conn.messages.set(m.chat, [])
-    conn.messages.get(m.chat).push(m)
+	conn.ev.on("messages.upsert", async ({ messages }) => {
+		if (!messages[0]) return;
+		conn.messages ??= new Map();
+		const m = await serialize(conn, messages[0]);
+		if (!conn.messages.has(m.chat)) conn.messages.set(m.chat, []);
+		conn.messages.get(m.chat).push(m);
 
-    if (m.key && !m.fromMe && m.key.remoteJid === 'status@broadcast') {
-        if (!readsw.active) return
-        if (m.type === 'protocolMessage' && m.message.protocolMessage.type === 0) return;
+		if (m.key && !m.fromMe && m.key.remoteJid === "status@broadcast") {
+			if (!readsw.active) return;
+			if (
+				m.type === "protocolMessage" &&
+				m.message.protocolMessage.type === 0
+			)
+				return;
 
-        try {
-            await conn.readMessages([m.key]);
-            if (!readsw.react) {
-                const emojis = readsw.emoji;
-                const emoji = emojis[Math.floor(Math.random() * emojis.length)] || '💚';
-                await delay(10000)
-                await conn.sendMessage('status@broadcast', {
-                    react: {
-                        text: emoji,
-                        key: m.key
-                    }
-                }, {
-                    statusJidList: [m.key.participant]
-                });
-            }
-            console.log(`Dibaca Story dari ${m.key.participant.split('@')[0]}`);
-        } catch (err) {
-            console.error(err);
-        }
-    }
+			try {
+				await conn.readMessages([m.key]);
+				if (!readsw.react) {
+					const emojis = readsw.emoji;
+					const emoji =
+						emojis[Math.floor(Math.random() * emojis.length)] ||
+						"💚";
+					await delay(10000);
+					await conn.sendMessage(
+						"status@broadcast",
+						{
+							react: {
+								text: emoji,
+								key: m.key
+							}
+						},
+						{
+							statusJidList: [m.key.participant]
+						}
+					);
+				}
+				console.log(
+					`Dibaca Story dari ${m.key.participant.split("@")[0]}`
+				);
+			} catch (err) {
+				console.error(err);
+			}
+		}
 
-    if (m.chat.endsWith('@broadcast') || m.chat.endsWith('@newsletter')) return
-    if (m.message && !m.isBot) {
-    if (m.type == 'protocolMessage') return
-        await (await import(`./lib/print.js?v=${Date.now()}`)).default(conn, m)
-    }
+		if (m.chat.endsWith("@broadcast") || m.chat.endsWith("@newsletter"))
+			return;
+		if (m.message && !m.isBot) {
+			if (m.type == "protocolMessage") return;
+			await (
+				await import(`./lib/print.js?v=${Date.now()}`)
+			).default(conn, m);
+		}
 
-    await (await import(`./handler.js?v=${Date.now()}`)).default(conn, m)
-})
+		await (await import(`./handler.js?v=${Date.now()}`)).default(conn, m);
+	});
 }
 
 startWA();
