@@ -110,7 +110,6 @@ class Cmd {
             //isi kode nya
         };
     }
-}
 
 /**
  * Ekspor objek Cmd sebagai default
