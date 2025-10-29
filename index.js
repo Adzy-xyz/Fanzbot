@@ -170,7 +170,6 @@ async function startWA() {
 			}
 		}
 	});
-
 	conn.ev.on("messages.upsert", async ({ messages }) => {
 		if (!messages[0]) return;
 		conn.messages ??= new Map();
