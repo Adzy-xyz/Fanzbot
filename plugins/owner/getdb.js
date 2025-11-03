@@ -2,7 +2,7 @@
  * Mengimpor module fs
  * @typedef {import('fs').fs} fs
  */
-
+import fs from "fs"
 /**
  * Kelas Cmd untuk menghandle perintah di bot
  *
@@ -64,7 +64,7 @@ class Cmd {
 				conn.sendMessage(
 					m.chat,
 					{
-						document: await fs.readFileSync(`./${db}.js`),
+						document: await fs.readFileSync(`./${db}.json`),
 						mimitype: "application/json",
 						fileName: "database.json"
 					},

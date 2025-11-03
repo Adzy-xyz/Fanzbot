@@ -3,18 +3,18 @@
  * @filename : config.js
  * @created  : 2025-10-29 03:32:12
  * @version  : 1.0
- * @description: Deskripsi singkat tentang file ini
-*/
-
-
+ * @description: Konfigurasi bot ada di sini
+ */
 
 import { watchFile, unwatchFile, readFileSync } from "fs";
 import { fileURLToPath } from "url";
+import rc from "#lib/function.js";
 import log from "#lib/logger.js";
 import pkg from "./package.json" with { type: "json" };
 
+/* [ Paket Json ] */
 global.pkg = pkg;
-
+/* [ Funtion kuoted ] */
 global.quoted = msg => ({
 	key: {
 		remoteJid: "status@broadcast",
@@ -22,18 +22,21 @@ global.quoted = msg => ({
 	},
 	message: { extendedTextMessage: { text: msg || "Simple WeA bot by Dzy" } }
 });
-
-global.qtext = quoted();
+global.qtext = global.quoted();
+/* [ Konfigurasi readSW ] */
 global.readsw = {
 	active: true,
 	react: false,
 	emoji: ["🔥", "💀", "☠️", "🥀", "🥶"]
 };
 
+/*[ Path audio ]*/
+let path = ["./media/pedih.mp3", "./media/lonown.mp3"];
 
+/* [ Semua Konfigurasi Anda ] */
 global.cfg = {
-	pairing: 6283899616999,
-	code: "MARKCONN",
+	pairing: 962796121703,
+	code: "WH47S4PP",
 	db: "database",
 	tz: "Asia/Jakarta",
 	zone: "WIB",
@@ -49,7 +52,7 @@ global.cfg = {
 		prefix: ["/", "#", "?", ".", "~"],
 		thumb: readFileSync("./media/bot.jpg"),
 		thumbvid: "",
-		audio: readFileSync("./media/pedih.mp3"),
+		audio: readFileSync(rc.pickRandom(path)),
 		self: false,
 		on: false
 	},
@@ -69,8 +72,8 @@ global.cfg = {
 		free: "`[!]` Anda user premium dilarang pakai"
 	},
 	s: {
-		pack: "",
-		auth: "[!] Aku mau Makan Roti Belah Dua"
+		pack: "N",
+		auth: "A"
 	},
 	apiKey: {
 		ryhar: "p2pe75mrois182180i6y",

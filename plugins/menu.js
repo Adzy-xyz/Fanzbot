@@ -1,6 +1,6 @@
-import buttons from "#conn/button.js";
+
 import { contextInfo } from "#conn/contextInfo.js";
-const { interAktif, rowSalah } = buttons;
+import { interAktif, rowSalah } from "#conn/button.js"
 
 export default {
 	name: "menu",
@@ -11,7 +11,7 @@ export default {
 		let jirlah = m.args[0] ? m.args[0].toLowerCase() : null;
 
 		for (let plugin of Object.values(plugins)) {
-			if (!plugin.command) continue;
+			// if (!plugin.command) continue;
 			if (!grouped[plugin.category]) grouped[plugin.category] = [];
 			grouped[plugin.category].push(plugin);
 		}
@@ -34,7 +34,7 @@ export default {
 			`| Creator  : made with ❤️ by Adzy`,
 			`| Base     : AgusXzz`,
 			`| Username : ${m.pushname}`,
-			`| Command  : "${m.cmd}"`,
+			`| Command  : "${m.cmd} ${m.text ?? ""}"`,
 			`---------------------------`
 		].join("\n");
 

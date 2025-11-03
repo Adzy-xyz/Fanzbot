@@ -1,6 +1,9 @@
-node_modules
-sessions
+node_modules/*
+sessions/*
 tmp/*
+Tmp/*
 *.bak
 *.zip
 .git/*
+temp/*
+Temp/*

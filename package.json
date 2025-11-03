@@ -1,17 +1,17 @@
 {
     "name": "fanz",
-    "version": "2.6",
+    "version": "3.0.0",
     "description": "Fanz is simple WeA Bot",
     "license": "Apache-2.0",
     "author": "Adzy-f",
     "base": "github:AgusXzz/ESEMPE-MD",
-    "homepage": "https://github.com/Adzy-f/Fanz#readme",
+    "homepage": "https://github.com/Adzy-xyz/Fanzbot#readme",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Adzy-f/Fanz.git"
+        "url": "git+https://github.com/Adzy-xyz/Fanzbot.git"
     },
     "bugs": {
-        "url": "https://github.com/Adzy-f/Fanz/issues"
+        "url": "https://github.com/Adzy-xyz/Fanzbot/issues"
     },
     "type": "module",
     "main": "index.js",

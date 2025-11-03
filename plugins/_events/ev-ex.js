@@ -3,6 +3,7 @@ import cp from "child_process";
 
 export default {
     name: "Eval & Exec",
+    category: "#Events",
     on: async (m, ctx) => {
         const { conn, isOwner, Scrape, Api } = ctx;
         if (!isOwner) return;

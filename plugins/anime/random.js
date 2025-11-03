@@ -1,8 +1,9 @@
+// random.js
 class Cmd {
 	constructor() {
 		this.name = "randomanime";
 		this.category = "anime";
-		this.command = ["randomanime"];
+		this.command = ["randomanime", "rndnime"];
 		this.alias = [
 			"akira",
 			"akiyama",
@@ -18,7 +19,7 @@ class Cmd {
 	}
 
 	run = async (m, { conn, Api }) => {
-		let rnd = `[#] Daftar Anime yang Tersedia:
+		let daftar = `[#] Daftar Anime yang Tersedia:
 
 1. akira
 2. akiyama
@@ -32,17 +33,28 @@ class Cmd {
 Ketik salah satu alias di atas, contoh:
 .randomanime naruto`;
 
-		if (!m.text) return m.reply(rnd);
+		// Kalau user gak masukin alias
+		if (!m.text) return m.reply(daftar);
 
 		const cmd = m.text.trim().toLowerCase();
 		const validAliases = this.alias;
 
 		try {
 			if (validAliases.includes(cmd)) {
-				let apis = await Api.createUrl("btz", "/api/anime/" + cmd);
+				// FIX: param ke-4 baru "APIKey"
+				let apiUrl = Api.createUrl(
+					"btz",
+					`/api/anime/${cmd}`,
+					{apikey: cfg.apikey.btz}
+				);
+
+				// fallback kalo API-nya gak ngirim status
 				await conn.sendMessage(
 					m.chat,
-					{ image: { url: apis }, caption: "Done anime " + cmd },
+					{
+						image: { url: apiUrl },
+						caption: `[#] Done anime ${cmd}`
+					},
 					{ quoted: m }
 				);
 			} else {
@@ -51,7 +63,11 @@ Ketik salah satu alias di atas, contoh:
 				});
 			}
 		} catch (err) {
-			m.reply("[x] Terjadi kesalahan: " + err.message);
+			console.error(err);
+			m.reply(
+				"[x] Terjadi kesalahan saat memproses permintaan: " +
+					err.message
+			);
 		}
 	};
 }

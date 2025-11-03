@@ -77,10 +77,10 @@ export default async function Command(conn, m) {
 		  }; // Default bot data untuk private message
 
 	let isAdmin =
-		(m.isGroup && senderData && senderData.admin === "admin") ||
+		(m.isGroup && senderData && senderData.admin === "admin") &&
 		"superadmin";
 	let isBotAdmin =
-		(m.isGroup && botData && botData.admin === "admin") || "superadmin";
+		(m.isGroup && botData && botData.admin === "admin") && "superadmin";
 	// Untuk private message, kamu bisa set admin dan botAdmin sesuai kebutuhan
 	if (!m.isGroup) {
 		isAdmin = false; // false = Misalnya bot gak punya role admin di private message
@@ -111,7 +111,8 @@ export default async function Command(conn, m) {
 		isPrems,
 		log,
 		text: m.text,
-		args: m.args
+		args: m.args,
+		pushname: m.pushname
 	};
 
 	for (const plugin of Object.values(plugins)) {

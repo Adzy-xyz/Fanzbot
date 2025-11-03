@@ -2,6 +2,7 @@
 
 export default {
   name: "Alasan Afk",
+  category: "#Events",
   on: async (m, ctx) => {
     const { Func } = ctx
       let user = db.list().user;
