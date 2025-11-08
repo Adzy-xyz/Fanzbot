@@ -1,5 +1,6 @@
-## Fanzbot
+## Verabot
 
+> anu
 <table>
 <tr>
 <td align="center" width="25%">
@@ -17,6 +18,23 @@
 <sub><b>Dika Ardnt</b></sub><br />
 <sub>Original Work</sub>
 </td>
+</tr>
+</table>
+
+> contirbutor
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="https://github.com/alfarezavirz-vera.png" width="100px;" alt="Alfarz-vyz"/><br />
+<sub><b>Alfarz-vyz</b></sub><br />
+<sub>Owner-Verabot</sub>
+</td>
+</tr>
+</table>
+
+> baileys 
+<table>
+<tr>
 <td align="center" width="25%">
 <img src="https://github.com/WhiskeySockets.png" width="100px;" alt="Baileys"/><br />
 <sub><b>Baileys</b></sub><br />
